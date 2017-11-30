@@ -2,7 +2,7 @@ FROM blacktop/volatility:2.6
 
 LABEL maintainer "https://github.com/blacktop"
 
-ENV CUCKOO_VERSION 2.0.2
+ENV CUCKOO_VERSION 2.0.4
 ENV CUCKOO_CWD /cuckoo
 ENV SSDEEP ssdeep-2.13
 
@@ -21,22 +21,23 @@ RUN apk update && apk add --no-cache postgresql-dev \
                      gcc \
                      g++
 RUN apk add --no-cache -t .build-deps \
-                           openssl-dev \
-                           libxslt-dev \
-                           libxml2-dev \
-                           python-dev \
-                           libffi-dev \
-                           build-base \
-                           libstdc++ \
-                           zlib-dev \
-                           libc-dev \
-                           jpeg-dev \
-                           file-dev \
-                           automake \
                            autoconf \
-                           libtool \
-                           py-pip \
+                           automake \
+                           build-base \
+                           file-dev \
                            git \
+                           jpeg-dev \
+                           libc-dev \
+                           libffi-dev \
+                           libstdc++ \
+                           libtool \
+                           libxml2-dev \
+                           libxslt-dev \
+                           linux-headers \
+                           openssl-dev \
+                           py-pip \
+                           python-dev \
+                           zlib-dev \
   && set -x \
   && echo "===> Install ssdeep..." \
   && wget -O /tmp/$SSDEEP.tar.gz https://downloads.sourceforge.net/project/ssdeep/$SSDEEP/$SSDEEP.tar.gz \
